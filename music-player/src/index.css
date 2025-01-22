@@ -1,0 +1,70 @@
+/* index.css */
+
+/* Define custom CSS variables */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-white: #ffffff;
+  --color-background: blueviolet;
+  --font-family-inter: "Inter", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+}
+
+body {
+  /* background: var(--color-background);
+   */
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  /* background-color: rgb(34, 27, 27); */
+  background-color: #331e00;
+  background: linear-gradient(125deg, #0a092f, #1a0f00);
+  color: var(--color-white);
+  font-family: var(--font-family-inter);
+  font-weight: var(--font-weight-regular);
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+/* Style the range input */
+.seeker-range {
+  -webkit-appearance: none; /* Removes default styles */
+  appearance: none;
+  height: 6px; /* Height of the seeker bar */
+  background: rgba(255, 255, 255, 0.4); /* Background color (uncovered part) */
+  border-radius: 5px; /* Rounded corners */
+  outline: none; /* Remove outline */
+  transition: background 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Style the range thumb */
+.seeker-range::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default thumb */
+  appearance: none;
+  width: 0px; /* Set width to 0 to remove the thumb */
+  height: 0px; /* Set height to 0 to remove the thumb */
+  background: transparent; /* Make it invisible */
+  border: none; /* No border */
+}
+
+/* Style the filled part of the range (covered song range) */
+
+@layer components {
+  .control-button {
+    @apply h-[48px] w-[48px] text-center rounded-full bg-[rgba(255,255,255,0.1)] flex justify-center items-center cursor-pointer transition-all duration-300;
+  }
+
+  .control-button:hover {
+    @apply bg-[rgba(255,255,255,0.3)] border-[rgba(255,255,255,0.7)];
+  }
+
+  .control-button:active {
+    @apply bg-[rgba(255,255,255,0.4)];
+  }
+}
