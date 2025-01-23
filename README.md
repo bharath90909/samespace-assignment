@@ -4,6 +4,7 @@ This is a feature-rich **Music Player Application** built using **ReactJS**, **T
 
 ## ✨ Features
 - Play, pause, and skip tracks with intuitive controls.
+- Search and Filter songs as per your wish.
 - Interactive progress bar to seek through tracks.
 - Real-time audio progress tracking.
 - Responsive design optimized for mobile and desktop devices.
