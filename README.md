@@ -29,6 +29,6 @@ The application is fully responsive and works seamlessly on:
 
 ![Image](https://github.com/user-attachments/assets/7ceb4b0c-81ce-4d9c-8311-71045460c5aa)
 
-![Image](https://github.com/user-attachments/assets/d603e852-caf5-45c6-b785-076cf2b337fe)
+![Image](https://github.com/user-attachments/assets/8b551d63-6d4d-4137-8c83-846ea72d91e6)
 
-![Image](https://github.com/user-attachments/assets/c1798b8c-15f8-4c5b-a545-7bba8438f8c5)
+![Image](https://github.com/user-attachments/assets/7956ce0a-585b-4c24-b697-779d2101ac23)
