@@ -3,6 +3,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 const SearchBar = ({ query, onQueryChange }) => {
   return (
     <div className="w-full h-[48px] my-4 relative">
+      {/* Search Bar */}
       <input
         type="text"
         value={query}
@@ -10,6 +11,8 @@ const SearchBar = ({ query, onQueryChange }) => {
         placeholder="Search Song, Artist"
         className="w-full h-full py-2 px-4 bg-[rgba(255,255,255,0.4)]  rounded-md placeholder-[rgba(255,255,255,0.4)] outline-none "
       />
+
+      {/* MagnifyingGlass */}
       <div
         className="absolute top-[50%] right-4 text-[20px] "
         style={{

@@ -1,16 +1,27 @@
-import React, { useContext, useEffect } from "react";
-import { MusicContext } from "../context/MusicProvider";
+import React from "react";
+import { useMusicContext } from "../hooks/useMusicContext";
 import Shimmer from "../ui/Shimmer";
+import Error from "../ui/Error";
+
+// function to format duration
+const formatDuration = (seconds) => {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+};
 
 const SongList = () => {
-  const { songs, setCurrentSong, loading } = useContext(MusicContext);
+  const { songs, setCurrentSong, loading, error } = useMusicContext();
 
   if (loading) {
     return <Shimmer />;
   }
+  if (error) {
+    return <Error />;
+  }
 
   return (
-    <div className="song-list overflow-y-auto flex-1  border">
+    <div className="song-list overflow-y-auto flex-1">
       {songs && songs.length > 0 ? (
         songs.map((song) => (
           <div
@@ -43,13 +54,6 @@ const SongList = () => {
       )}
     </div>
   );
-};
-
-// Helper to format duration
-const formatDuration = (seconds) => {
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
-  return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
 };
 
 export default SongList;

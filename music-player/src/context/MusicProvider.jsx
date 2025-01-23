@@ -4,43 +4,46 @@ export const MusicContext = createContext();
 
 function MusicProvider({ children }) {
   const [allSongs, setAllSongs] = useState([]); // Original list from API
-  const [filteredSongs, setFilteredSongs] = useState([]); // Filtered songs
+  const [filteredSongs, setFilteredSongs] = useState([]);
   const [currentSong, setCurrentSong] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Helper to fetch song duration
+  // Fetching song duration
   async function fetchSongDuration(song) {
     return new Promise((resolve) => {
       const audio = new Audio(song.url);
       audio.onloadedmetadata = () => {
-        song.duration = Math.floor(audio.duration); // Add duration in seconds
+        song.duration = Math.floor(audio.duration);
         resolve(song);
       };
     });
   }
 
-  // Fetch songs with duration
+  // Fetching songs
   async function fetchSongs() {
     try {
+      setError(false);
       const response = await fetch("https://cms.samespace.com/items/songs");
       const data = await response.json();
       const fetchedSongs = data.data;
 
-      // Fetch duration for each song
+      // Fetching duration for each song
       const songsWithDuration = await Promise.all(
         fetchedSongs.map((song) => fetchSongDuration(song))
       );
 
-      setAllSongs(songsWithDuration); // Store the original list
-      setFilteredSongs(songsWithDuration); // Initialize the filtered list
-      setLoading(false);
+      setAllSongs(songsWithDuration);
+      setFilteredSongs(songsWithDuration);
     } catch (error) {
       console.error("Error fetching songs:", error);
-      setLoading(false);
+      setError(true);
     }
+    setLoading(false);
   }
 
-  // Filter songs based on tab and query
+  // Filtering songs based on tab and query
   const filterSongs = (tab, query) => {
     let filtered = [...allSongs];
     if (tab !== "For You") {
@@ -53,7 +56,7 @@ function MusicProvider({ children }) {
           song.artist.toLowerCase().includes(query.toLowerCase())
       );
     }
-    setFilteredSongs(filtered); // Update filtered songs
+    setFilteredSongs(filtered);
   };
 
   useEffect(() => {
@@ -63,11 +66,14 @@ function MusicProvider({ children }) {
   return (
     <MusicContext.Provider
       value={{
-        songs: filteredSongs, // Expose filteredSongs as songs
+        songs: filteredSongs, // filteredSongs as songs
+        filterSongs,
         currentSong,
         setCurrentSong,
         loading,
-        filterSongs, // Expose filterSongs function
+        error,
+        isModalOpen,
+        setIsModalOpen,
       }}
     >
       {children}

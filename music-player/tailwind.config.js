@@ -1,8 +1,4 @@
-// tailwind.config.js
-
-/** @type {import('tailwindcss').Config} */
 export default {
-  mode: "jit",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -25,14 +21,21 @@ export default {
           "0%": { opacity: 0, transform: "translateY(10px)" },
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
+        fadeOut: {
+          "0%": { opacity: 1, transform: "translateY(0)" },
+          "100%": { opacity: 0, transform: "translateY(10px)" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.3s ease-in-out",
+        fadeOut: "fadeOut 0.3s ease-in-out",
       },
 
       screens: {
-        sm: "750px", // Default
-        md: "980px", // Default
-        lg: "1200px", // Custom breakpoint
-        xl: "1280px", // Default
-        "2xl": "1536px", // Default
+        //customized breakpoints
+        sm: "750px",
+        md: "980px",
+        lg: "1200px",
       },
     },
   },

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { MusicContext } from "../context/MusicProvider";
 
 export function useMusicContext() {

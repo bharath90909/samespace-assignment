@@ -2,7 +2,8 @@ import React from "react";
 
 function Nav({ currentTab, onTabChange }) {
   return (
-    <div className="nav flex md:py-2 py-1 items-center md:text-[24px] text-[22px] lg:leading-[32px] md:gap-[40px] sm:gap-4">
+    <div className="nav text-[22px] md:text-[24px] py-1 md:py-2 flex items-center gap-6 lg:leading-[32px] md:gap-[40px] sm:gap-4">
+      {/* For You Tab */}
       <button
         onClick={() => onTabChange("For You")}
         className={`${
@@ -13,6 +14,8 @@ function Nav({ currentTab, onTabChange }) {
       >
         For You
       </button>
+
+      {/* Top Tracks Tab */}
       <button
         onClick={() => onTabChange("Top Tracks")}
         className={`${
