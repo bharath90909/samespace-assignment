@@ -21,3 +21,14 @@ The application is fully responsive and works seamlessly on:
 - Mobile devices
 - Tablets
 - Laptops and desktops
+
+## Some snap shots
+![Image](https://github.com/user-attachments/assets/ca30c962-6c44-4dc6-a593-fb13a32a6190)
+
+![Image](https://github.com/user-attachments/assets/3bccf0ce-6a58-4292-aae2-675c144c2503)
+
+![Image](https://github.com/user-attachments/assets/7ceb4b0c-81ce-4d9c-8311-71045460c5aa)
+
+![Image](https://github.com/user-attachments/assets/d603e852-caf5-45c6-b785-076cf2b337fe)
+
+![Image](https://github.com/user-attachments/assets/c1798b8c-15f8-4c5b-a545-7bba8438f8c5)
