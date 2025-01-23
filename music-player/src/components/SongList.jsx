@@ -1,21 +1,22 @@
 import React, { useContext, useEffect } from "react";
 import { MusicContext } from "../context/MusicProvider";
+import Shimmer from "../ui/Shimmer";
 
 const SongList = () => {
   const { songs, setCurrentSong, loading } = useContext(MusicContext);
 
   if (loading) {
-    return <p>Loading songs...</p>;
+    return <Shimmer />;
   }
 
   return (
-    <div className="song-list overflow-y-auto flex-1 ">
+    <div className="song-list overflow-y-auto flex-1  border">
       {songs && songs.length > 0 ? (
         songs.map((song) => (
           <div
             key={song.id}
             onClick={() => setCurrentSong(song)}
-            className="song-item flex items-center gap-4 py-[16px]  cursor-pointer"
+            className="song-item flex items-center gap-4 py-[18px]  cursor-pointer"
           >
             <img
               src={`https://cms.samespace.com/assets/${song.cover}`}
@@ -23,8 +24,10 @@ const SongList = () => {
               className="song-cover w-12 h-12 rounded-full object-cover"
             />
             <div className="song-details flex-1">
-              <h4 className="text-[18px] font-regular">{song.name}</h4>
-              <p className="text-[14px] font-regular  text-[rgba(255,255,255,0.4)]">
+              <h4 className="md:text-[18px] text-[16px] font-regular">
+                {song.name}
+              </h4>
+              <p className="lg:text-[14px] text-[15px] font-regular  text-[rgba(255,255,255,0.4)]">
                 {song.artist}
               </p>
             </div>
@@ -34,7 +37,9 @@ const SongList = () => {
           </div>
         ))
       ) : (
-        <p className="text-white font-regular">No songs found.</p>
+        <p className=" text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+          No songs found.
+        </p>
       )}
     </div>
   );

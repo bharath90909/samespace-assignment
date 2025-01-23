@@ -14,7 +14,7 @@
   --font-weight-bold: 700;
 }
 
-body {
+.app-container {
   /* background: var(--color-background);
    */
   width: 100vw;
@@ -22,7 +22,7 @@ body {
   display: grid;
   place-items: center;
   /* background-color: rgb(34, 27, 27); */
-  background-color: #331e00;
+  /* background-color: #331e00; */
   background: linear-gradient(125deg, #0a092f, #1a0f00);
   color: var(--color-white);
   font-family: var(--font-family-inter);
@@ -57,14 +57,14 @@ body {
 
 @layer components {
   .control-button {
-    @apply h-[48px] w-[48px] text-center rounded-full bg-[rgba(255,255,255,0.1)] flex justify-center items-center cursor-pointer transition-all duration-300;
+    @apply lg:h-[48px] lg:w-[48px] h-[40px] w-[40px] text-center rounded-full bg-[rgba(255,255,255,0.1)] flex justify-center items-center cursor-pointer transition-all duration-300;
   }
 
   .control-button:hover {
     @apply bg-[rgba(255,255,255,0.3)] border-[rgba(255,255,255,0.7)];
   }
 
-  .control-button:active {
+  /* .control-button:active {
     @apply bg-[rgba(255,255,255,0.4)];
-  }
+  } */
 }

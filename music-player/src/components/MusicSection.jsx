@@ -12,13 +12,15 @@ function MusicSection() {
   // Update filters whenever searchQuery or activeTab changes
   useEffect(() => {
     filterSongs(activeTab, searchQuery);
-  }, [activeTab, searchQuery, filterSongs]);
+  }, [activeTab, searchQuery]);
 
   return (
-    <div className="px-4 h-[80vh] flex flex-col">
-      <Nav currentTab={activeTab} onTabChange={setActiveTab} />
-      <SearchBar query={searchQuery} onQueryChange={setSearchQuery} />
-      <SongList />
+    <div className="border px-4 sm:h-[95vh] hidden md:h-[80vh] sm:block sm:px-6 sm:ml-4 md:ml-0">
+      <div className="flex flex-col h-full">
+        <Nav currentTab={activeTab} onTabChange={setActiveTab} />
+        <SearchBar query={searchQuery} onQueryChange={setSearchQuery} />
+        <SongList />
+      </div>
     </div>
   );
 }
